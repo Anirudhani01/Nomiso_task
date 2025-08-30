@@ -1,0 +1,780 @@
+[
+  {
+    "filename": "ecommerce_backend.py",
+    "file_path": "../src/ecommerce_backend.py",
+    "business_overview": "E-commerce backend API with user authentication and product management",
+    "architecture": "FastAPI-based REST API with JWT authentication",
+    "security_features": [
+      "JWT token-based authentication",
+      "Password hashing with bcrypt",
+      "Protected endpoints requiring authentication"
+    ],
+    "classes": [
+      {
+        "name": "UserCreate",
+        "docstring": null,
+        "business_case": "User data model - represents user account information",
+        "fields": [
+          {
+            "name": "username",
+            "type": "str",
+            "validation_rules": [
+              "Username uniqueness"
+            ],
+            "business_constraints": [
+              "Username must be unique across users"
+            ]
+          },
+          {
+            "name": "email",
+            "type": "str",
+            "validation_rules": [
+              "Email format validation"
+            ],
+            "business_constraints": [
+              "Email must be unique across users"
+            ]
+          },
+          {
+            "name": "password",
+            "type": "str",
+            "validation_rules": [
+              "Secure password storage"
+            ],
+            "business_constraints": [
+              "Password should be hashed before storage"
+            ]
+          }
+        ],
+        "dependencies": [],
+        "validation_rules": [],
+        "test_details": {
+          "input_validation": [],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": []
+        }
+      },
+      {
+        "name": "UserLogin",
+        "docstring": null,
+        "business_case": "User authentication endpoint - validates credentials and issues JWT tokens",
+        "fields": [
+          {
+            "name": "username",
+            "type": "str",
+            "validation_rules": [
+              "Username uniqueness"
+            ],
+            "business_constraints": [
+              "Username must be unique across users"
+            ]
+          },
+          {
+            "name": "password",
+            "type": "str",
+            "validation_rules": [
+              "Secure password storage"
+            ],
+            "business_constraints": [
+              "Password should be hashed before storage"
+            ]
+          }
+        ],
+        "dependencies": [],
+        "validation_rules": [],
+        "test_details": {
+          "input_validation": [
+            "Username existence check",
+            "Password verification"
+          ],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": [
+            "Invalid credentials",
+            "User not found"
+          ]
+        }
+      },
+      {
+        "name": "User",
+        "docstring": null,
+        "business_case": "User data model - represents user account information",
+        "fields": [
+          {
+            "name": "id",
+            "type": "str",
+            "validation_rules": [
+              "UUID format validation"
+            ],
+            "business_constraints": [
+              "Auto-generated unique identifier"
+            ]
+          },
+          {
+            "name": "username",
+            "type": "str",
+            "validation_rules": [
+              "Username uniqueness"
+            ],
+            "business_constraints": [
+              "Username must be unique across users"
+            ]
+          },
+          {
+            "name": "email",
+            "type": "str",
+            "validation_rules": [
+              "Email format validation"
+            ],
+            "business_constraints": [
+              "Email must be unique across users"
+            ]
+          }
+        ],
+        "dependencies": [],
+        "validation_rules": [],
+        "test_details": {
+          "input_validation": [],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": []
+        }
+      },
+      {
+        "name": "ProductCreate",
+        "docstring": null,
+        "business_case": "Product data model - represents product catalog items",
+        "fields": [
+          {
+            "name": "name",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          },
+          {
+            "name": "description",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          },
+          {
+            "name": "price",
+            "type": "float",
+            "validation_rules": [
+              "Positive number validation"
+            ],
+            "business_constraints": [
+              "Price must be greater than zero"
+            ]
+          },
+          {
+            "name": "category",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          }
+        ],
+        "dependencies": [],
+        "validation_rules": [],
+        "test_details": {
+          "input_validation": [
+            "Product name validation",
+            "Price validation",
+            "Category validation"
+          ],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": [
+            "Invalid product data",
+            "Unauthorized access"
+          ]
+        }
+      },
+      {
+        "name": "Product",
+        "docstring": null,
+        "business_case": "Product data model - represents product catalog items",
+        "fields": [
+          {
+            "name": "id",
+            "type": "str",
+            "validation_rules": [
+              "UUID format validation"
+            ],
+            "business_constraints": [
+              "Auto-generated unique identifier"
+            ]
+          },
+          {
+            "name": "name",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          },
+          {
+            "name": "description",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          },
+          {
+            "name": "price",
+            "type": "float",
+            "validation_rules": [
+              "Positive number validation"
+            ],
+            "business_constraints": [
+              "Price must be greater than zero"
+            ]
+          },
+          {
+            "name": "category",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          },
+          {
+            "name": "seller_id",
+            "type": "str",
+            "validation_rules": [
+              "UUID format validation"
+            ],
+            "business_constraints": [
+              "Auto-generated unique identifier"
+            ]
+          }
+        ],
+        "dependencies": [],
+        "validation_rules": [],
+        "test_details": {
+          "input_validation": [
+            "Product name validation",
+            "Price validation",
+            "Category validation"
+          ],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": [
+            "Invalid product data",
+            "Unauthorized access"
+          ]
+        }
+      },
+      {
+        "name": "Token",
+        "docstring": null,
+        "business_case": "Authentication token model - represents JWT access tokens",
+        "fields": [
+          {
+            "name": "access_token",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          },
+          {
+            "name": "token_type",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          }
+        ],
+        "dependencies": [],
+        "validation_rules": [
+          "JWT token validation and expiration"
+        ],
+        "test_details": {
+          "input_validation": [],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": []
+        }
+      }
+    ],
+    "functions": [
+      {
+        "name": "verify_password",
+        "docstring": null,
+        "business_case": "Password verification utility - compares plain text with hashed passwords",
+        "parameters": [
+          "plain_password",
+          "hashed_password"
+        ],
+        "return": "Unknown",
+        "dependencies": [],
+        "validation_rules": [
+          "Password validation and hashing"
+        ],
+        "error_handling": [],
+        "test_details": {
+          "input_validation": [],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": []
+        },
+        "is_endpoint": false
+      },
+      {
+        "name": "get_password_hash",
+        "docstring": null,
+        "business_case": "Password hashing utility - creates secure password hashes using bcrypt",
+        "parameters": [
+          "password"
+        ],
+        "return": "Unknown",
+        "dependencies": [],
+        "validation_rules": [
+          "Password validation and hashing"
+        ],
+        "error_handling": [],
+        "test_details": {
+          "input_validation": [],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": []
+        },
+        "is_endpoint": false
+      },
+      {
+        "name": "create_access_token",
+        "docstring": null,
+        "business_case": "JWT token generation - creates time-limited access tokens for authentication",
+        "parameters": [
+          "data"
+        ],
+        "return": "Unknown",
+        "dependencies": [],
+        "validation_rules": [
+          "JWT token validation and expiration"
+        ],
+        "error_handling": [],
+        "test_details": {
+          "input_validation": [],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": []
+        },
+        "is_endpoint": false
+      },
+      {
+        "name": "verify_token",
+        "docstring": null,
+        "business_case": "JWT token validation - verifies and decodes authentication tokens",
+        "parameters": [
+          "credentials"
+        ],
+        "return": "Unknown",
+        "dependencies": [],
+        "validation_rules": [
+          "JWT token validation and expiration"
+        ],
+        "error_handling": [],
+        "test_details": {
+          "input_validation": [],
+          "authentication_required": true,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": [
+            "Invalid token format",
+            "Expired token",
+            "Missing authorization header"
+          ]
+        },
+        "is_endpoint": false
+      }
+    ],
+    "endpoints": [],
+    "data_models": [
+      {
+        "name": "UserCreate",
+        "docstring": null,
+        "business_case": "User data model - represents user account information",
+        "fields": [
+          {
+            "name": "username",
+            "type": "str",
+            "validation_rules": [
+              "Username uniqueness"
+            ],
+            "business_constraints": [
+              "Username must be unique across users"
+            ]
+          },
+          {
+            "name": "email",
+            "type": "str",
+            "validation_rules": [
+              "Email format validation"
+            ],
+            "business_constraints": [
+              "Email must be unique across users"
+            ]
+          },
+          {
+            "name": "password",
+            "type": "str",
+            "validation_rules": [
+              "Secure password storage"
+            ],
+            "business_constraints": [
+              "Password should be hashed before storage"
+            ]
+          }
+        ],
+        "dependencies": [],
+        "validation_rules": [],
+        "test_details": {
+          "input_validation": [],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": []
+        }
+      },
+      {
+        "name": "UserLogin",
+        "docstring": null,
+        "business_case": "User authentication endpoint - validates credentials and issues JWT tokens",
+        "fields": [
+          {
+            "name": "username",
+            "type": "str",
+            "validation_rules": [
+              "Username uniqueness"
+            ],
+            "business_constraints": [
+              "Username must be unique across users"
+            ]
+          },
+          {
+            "name": "password",
+            "type": "str",
+            "validation_rules": [
+              "Secure password storage"
+            ],
+            "business_constraints": [
+              "Password should be hashed before storage"
+            ]
+          }
+        ],
+        "dependencies": [],
+        "validation_rules": [],
+        "test_details": {
+          "input_validation": [
+            "Username existence check",
+            "Password verification"
+          ],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": [
+            "Invalid credentials",
+            "User not found"
+          ]
+        }
+      },
+      {
+        "name": "User",
+        "docstring": null,
+        "business_case": "User data model - represents user account information",
+        "fields": [
+          {
+            "name": "id",
+            "type": "str",
+            "validation_rules": [
+              "UUID format validation"
+            ],
+            "business_constraints": [
+              "Auto-generated unique identifier"
+            ]
+          },
+          {
+            "name": "username",
+            "type": "str",
+            "validation_rules": [
+              "Username uniqueness"
+            ],
+            "business_constraints": [
+              "Username must be unique across users"
+            ]
+          },
+          {
+            "name": "email",
+            "type": "str",
+            "validation_rules": [
+              "Email format validation"
+            ],
+            "business_constraints": [
+              "Email must be unique across users"
+            ]
+          }
+        ],
+        "dependencies": [],
+        "validation_rules": [],
+        "test_details": {
+          "input_validation": [],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": []
+        }
+      },
+      {
+        "name": "ProductCreate",
+        "docstring": null,
+        "business_case": "Product data model - represents product catalog items",
+        "fields": [
+          {
+            "name": "name",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          },
+          {
+            "name": "description",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          },
+          {
+            "name": "price",
+            "type": "float",
+            "validation_rules": [
+              "Positive number validation"
+            ],
+            "business_constraints": [
+              "Price must be greater than zero"
+            ]
+          },
+          {
+            "name": "category",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          }
+        ],
+        "dependencies": [],
+        "validation_rules": [],
+        "test_details": {
+          "input_validation": [
+            "Product name validation",
+            "Price validation",
+            "Category validation"
+          ],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": [
+            "Invalid product data",
+            "Unauthorized access"
+          ]
+        }
+      },
+      {
+        "name": "Product",
+        "docstring": null,
+        "business_case": "Product data model - represents product catalog items",
+        "fields": [
+          {
+            "name": "id",
+            "type": "str",
+            "validation_rules": [
+              "UUID format validation"
+            ],
+            "business_constraints": [
+              "Auto-generated unique identifier"
+            ]
+          },
+          {
+            "name": "name",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          },
+          {
+            "name": "description",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          },
+          {
+            "name": "price",
+            "type": "float",
+            "validation_rules": [
+              "Positive number validation"
+            ],
+            "business_constraints": [
+              "Price must be greater than zero"
+            ]
+          },
+          {
+            "name": "category",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          },
+          {
+            "name": "seller_id",
+            "type": "str",
+            "validation_rules": [
+              "UUID format validation"
+            ],
+            "business_constraints": [
+              "Auto-generated unique identifier"
+            ]
+          }
+        ],
+        "dependencies": [],
+        "validation_rules": [],
+        "test_details": {
+          "input_validation": [
+            "Product name validation",
+            "Price validation",
+            "Category validation"
+          ],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": [
+            "Invalid product data",
+            "Unauthorized access"
+          ]
+        }
+      },
+      {
+        "name": "Token",
+        "docstring": null,
+        "business_case": "Authentication token model - represents JWT access tokens",
+        "fields": [
+          {
+            "name": "access_token",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          },
+          {
+            "name": "token_type",
+            "type": "str",
+            "validation_rules": [],
+            "business_constraints": []
+          }
+        ],
+        "dependencies": [],
+        "validation_rules": [
+          "JWT token validation and expiration"
+        ],
+        "test_details": {
+          "input_validation": [],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": []
+        }
+      }
+    ],
+    "business_logic": [
+      {
+        "name": "verify_password",
+        "docstring": null,
+        "business_case": "Password verification utility - compares plain text with hashed passwords",
+        "parameters": [
+          "plain_password",
+          "hashed_password"
+        ],
+        "return": "Unknown",
+        "dependencies": [],
+        "validation_rules": [
+          "Password validation and hashing"
+        ],
+        "error_handling": [],
+        "test_details": {
+          "input_validation": [],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": []
+        },
+        "is_endpoint": false
+      },
+      {
+        "name": "get_password_hash",
+        "docstring": null,
+        "business_case": "Password hashing utility - creates secure password hashes using bcrypt",
+        "parameters": [
+          "password"
+        ],
+        "return": "Unknown",
+        "dependencies": [],
+        "validation_rules": [
+          "Password validation and hashing"
+        ],
+        "error_handling": [],
+        "test_details": {
+          "input_validation": [],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": []
+        },
+        "is_endpoint": false
+      },
+      {
+        "name": "create_access_token",
+        "docstring": null,
+        "business_case": "JWT token generation - creates time-limited access tokens for authentication",
+        "parameters": [
+          "data"
+        ],
+        "return": "Unknown",
+        "dependencies": [],
+        "validation_rules": [
+          "JWT token validation and expiration"
+        ],
+        "error_handling": [],
+        "test_details": {
+          "input_validation": [],
+          "authentication_required": false,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": []
+        },
+        "is_endpoint": false
+      },
+      {
+        "name": "verify_token",
+        "docstring": null,
+        "business_case": "JWT token validation - verifies and decodes authentication tokens",
+        "parameters": [
+          "credentials"
+        ],
+        "return": "Unknown",
+        "dependencies": [],
+        "validation_rules": [
+          "JWT token validation and expiration"
+        ],
+        "error_handling": [],
+        "test_details": {
+          "input_validation": [],
+          "authentication_required": true,
+          "database_operations": [],
+          "external_dependencies": [],
+          "error_scenarios": [
+            "Invalid token format",
+            "Expired token",
+            "Missing authorization header"
+          ]
+        },
+        "is_endpoint": false
+      }
+    ]
+  }
+]
